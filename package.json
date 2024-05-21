@@ -2,10 +2,26 @@
   "name": "my-test-lib",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "files": [
+		"/dist/"
+	],
+  "exports": {
+    "./module-a": "./dist/module-a/index.js",
+    "./module-b": "./dist/module-b/index.js"
+  },
+  "typedVersions": {
+    "*": {
+      "module-a": "dist/module-a/index.d.ts",
+      "module-b": "dist/module-b/index.d.ts"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild --outdir=./dist ./src/*/index.ts",
+    "prepare": "npm run build"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.21.3"
+  }
 }
