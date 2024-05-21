@@ -1,3 +1,3 @@
 export default function() {
-  console.log("Module A");
+  return "MODULE A";
 }
